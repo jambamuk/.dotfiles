@@ -1,0 +1,5 @@
+source ~/.dotfiles/vim/plugins
+source ~/.dotfiles/vim/base.vim
+source ~/.dotfiles/vim/theme
+source ~/.dotfiles/vim/mappings
+source ~/.dotfiles/vim/coc.vim

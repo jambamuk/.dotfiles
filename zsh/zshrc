@@ -1,0 +1,3 @@
+source ~/.dotfiles/zsh/base.zsh
+source ~/.dotfiles/zsh/plugins.zsh
+source ~/.dotfiles/zsh/aliases.zsh
