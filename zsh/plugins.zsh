@@ -7,6 +7,7 @@ antigen bundle git
 antigen bundle AlexisBRENON/oh-my-zsh-reminder
 antigen bundle osx
 antigen bundle vi-mode
+antigen bundle asdf
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle djui/alias-tips
 antigen bundle zsh-users/zsh-autosuggestions

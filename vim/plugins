@@ -24,11 +24,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
+Plug 'plasticboy/vim-markdown'
 
 " Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " ctrlp alt? TODO: configure
 Plug 'easymotion/vim-easymotion'
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } " Easy motion alt?
 Plug 'pechorin/any-jump.vim'
@@ -49,6 +49,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+
+" Svelte
+Plug 'leafOfTree/vim-svelte-plugin'
 
 " Theme
 Plug 'arcticicestudio/nord-vim'

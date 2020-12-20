@@ -63,5 +63,3 @@ function! SynStack ()
   endfor
 endfunction
 map ch :call SynStack()<CR>
-
-
