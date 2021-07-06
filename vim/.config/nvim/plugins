@@ -35,6 +35,13 @@ Plug 'pechorin/any-jump.vim'
 Plug 'rking/ag.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
+" Telescope
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " HTML
 Plug 'digitaltoad/vim-pug'
 
