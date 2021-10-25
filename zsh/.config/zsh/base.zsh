@@ -2,7 +2,7 @@ stty -ixon
 
 . $HOME/.asdf/asdf.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export APPS_HOME=/home/imtiaz/apps
 export ANDROID_HOME=/home/imtiaz/Android
 export ANDROID_SDK_ROOT=/home/imtiaz/Android
