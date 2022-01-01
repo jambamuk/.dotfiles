@@ -4,6 +4,7 @@ let maplocalleader="\<Space>"
 filetype plugin on
 filetype on
 au BufNewFile,BufRead * if &ft == '' | set ft=vim | endif
+set clipboard+=unnamed,unnamedplus
 
 set re=1
 
