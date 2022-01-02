@@ -60,3 +60,11 @@ function! SynStack ()
   endfor
 endfunction
 map ch :call SynStack()<CR>
+
+" EasyMotion
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-s)
+nmap <leader>s <Plug>(AerojumpBolt)
+omap <leader>s <Plug>(AerojumpBolt)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)

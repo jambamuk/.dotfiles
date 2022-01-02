@@ -1,8 +1,9 @@
+filetype plugin on
+filetype on
+
 set nocompatible
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
-filetype plugin on
-filetype on
 au BufNewFile,BufRead * if &ft == '' | set ft=vim | endif
 set clipboard+=unnamed,unnamedplus
 
@@ -34,11 +35,3 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set completeopt+=menuone
 set completeopt+=noselect
 set shortmess+=c
-
-" Easy motion
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-s)
-nmap <leader>s <Plug>(AerojumpBolt)
-omap <leader>s <Plug>(AerojumpBolt)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)

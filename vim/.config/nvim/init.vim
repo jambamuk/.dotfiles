@@ -1,7 +1,7 @@
-source ~/.config/nvim/plugins
-source ~/.config/nvim/base.vim
-source ~/.config/nvim/theme
-source ~/.config/nvim/mappings
+source ~/.config/nvim/vim/plugins.vim
+source ~/.config/nvim/vim/sets.vim
+source ~/.config/nvim/vim/theme.vim
+source ~/.config/nvim/vim/mappings.vim
 
 lua << EOF
 require('imtiaz.lsp')
