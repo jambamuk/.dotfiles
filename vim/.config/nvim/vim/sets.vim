@@ -1,5 +1,13 @@
-filetype plugin on
 filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
+setlocal spell spelllang=en
+
+set nospell
+set relativenumber
+set number
 
 set nocompatible
 let mapleader="\<Space>"

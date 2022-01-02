@@ -15,7 +15,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Code editing
 Plug 'junegunn/goyo.vim'
