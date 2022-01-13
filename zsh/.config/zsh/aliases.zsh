@@ -9,12 +9,8 @@ alias sz='source ~/.zshrc'
 
 alias gdpl='git pull && git pull origin develop'
 
-#wealthbit aliases
-alias ws='bin/webpack-dev-server'
-alias be='bundle exec'
-alias rs='bundle exec rails s'
-alias rt='bundle exec rails t'
-alias rc='bundle exec rails c'
+alias python='python3'
+alias python2='python2.7'
 
 # useful commands
 alias check_space='sudo ncdu -x / --exclude /System/Volumes/Data --exclude /Volumes'

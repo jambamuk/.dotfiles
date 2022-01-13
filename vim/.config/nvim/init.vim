@@ -4,6 +4,7 @@ source ~/.config/nvim/vim/theme.vim
 source ~/.config/nvim/vim/mappings.vim
 
 lua << EOF
-require('imtiaz.lsp')
-require('imtiaz.treesitter')
+require('jamba.lsp')
+require('jamba.treesitter')
+require('jamba.indent-line')
 EOF

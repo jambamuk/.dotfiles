@@ -5,36 +5,33 @@ nmap <C-k> :winc k<CR>
 nmap <C-l> :winc l<CR>
 
 "tabs
-nmap <C-o> :tabn<CR>
-nmap <C-i> :tabp<CR>
+nmap <C-i> :tabn<CR>
+nmap <C-y> :tabp<CR>
 nnoremap tn :tabnew<CR>
 
 nnoremap <F2> :NERDTree<CR>
 
 " Saving
-noremap <C-w> :TrailerTrim<CR>:wa<CR>
-inoremap <C-w> <Esc>:TrailerTrim<CR>:wa<CR>
+noremap <C-s> :TrailerTrim<CR>:wa<CR>
+inoremap <C-s> <Esc>:TrailerTrim<CR>:wa<CR>
 noremap <C-x> :q<CR>
 inoremap <C-x> <Esc>:q<CR>
 noremap <C-q> :TrailerTrim<CR>:wq<CR>
 inoremap <C-q> <Esc>:TrailerTrim<CR>:wq<CR>
 
-inoremap <Alt-j> <ESC>
-inoremap ∆ <ESC>
-
-inoremap <C-j> <Esc>
-vnoremap <C-j> <Esc>
-map <C-j> <Esc>
+inoremap jk <Esc>
 
 let g:AutoPairsShortcutJump = '<C-;>'
-
-" NERDTree
-nnoremap <leader>nt :NERDTreeFind<CR>
-nnoremap <leader>ig :IndentLinesToggle<CR>
-
-" Git
+" git
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gg :tab new<CR>:G<CR>:winc j<CR>:q<CR>
+nnoremap <leader>gg :tab new<CR>:G<CR>:winc j<CR>:q<CR>G
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
 " GOYO
 function! s:goyo_enter()
   Goyo 85%x85%
@@ -61,10 +58,3 @@ function! SynStack ()
 endfunction
 map ch :call SynStack()<CR>
 
-" EasyMotion
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-s)
-nmap <leader>s <Plug>(AerojumpBolt)
-omap <leader>s <Plug>(AerojumpBolt)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)

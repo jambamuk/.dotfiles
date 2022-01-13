@@ -8,17 +8,17 @@ local lsp_installer = require("nvim-lsp-installer")
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
     local opts = {
-        on_attach = require("imtiaz.lsp.handlers").on_attach,
-        capabilities = require("imtiaz.lsp.handlers").capabilities
+        on_attach = require("jamba.lsp.handlers").on_attach,
+        capabilities = require("jamba.lsp.handlers").capabilities
     }
 
     if server.name == "sumneko_lua" then
-        local sumneko_opts = require("imtiaz.lsp.settings.sumneko_lua")
+        local sumneko_opts = require("jamba.lsp.settings.sumneko_lua")
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     end
 
     if server.name == "jsonls" then
-        local jsonls_opts = require("imtiaz.lsp.settings.jsonls")
+        local jsonls_opts = require("jamba.lsp.settings.jsonls")
         opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
 
