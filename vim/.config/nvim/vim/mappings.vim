@@ -9,8 +9,6 @@ nmap <C-i> :tabn<CR>
 nmap <C-y> :tabp<CR>
 nnoremap tn :tabnew<CR>
 
-nnoremap <F2> :NERDTree<CR>
-
 " Saving
 noremap <C-s> :TrailerTrim<CR>:wa<CR>
 inoremap <C-s> <Esc>:TrailerTrim<CR>:wa<CR>
@@ -23,8 +21,11 @@ inoremap jk <Esc>
 
 let g:AutoPairsShortcutJump = '<C-;>'
 " git
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gl :Git pull<CR>
 nnoremap <leader>gg :tab new<CR>:G<CR>:winc j<CR>:q<CR>G
+
 
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>

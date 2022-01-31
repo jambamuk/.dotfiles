@@ -22,6 +22,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'plasticboy/vim-markdown'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'mbbill/undotree'
 
 " Navigation
 Plug 'nvim-lua/plenary.nvim'
