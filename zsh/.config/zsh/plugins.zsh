@@ -12,6 +12,7 @@ antigen bundle djui/alias-tips
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle supercrabtree/k
+antigen bundle jeffreytse/zsh-vi-mode
 
 antigen theme TyWR/Nord-zsh
 
