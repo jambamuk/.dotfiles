@@ -4,7 +4,7 @@ if not present then
    return
 end
 
-local default = {
+local options = {
    defaults = {
       vimgrep_arguments = {
          "rg",
@@ -35,6 +35,7 @@ local default = {
          height = 0.80,
          preview_cutoff = 120,
       },
+      file_sorter = require("telescope.sorters").get_fuzzy_file,
       file_ignore_patterns = { "node_modules" },
       generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
       path_display = { "truncate" },
@@ -49,24 +50,21 @@ local default = {
       qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
       -- Developer configurations: Not meant for general override
       buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+      mappings = {
+         n = { ["q"] = require("telescope.actions").close },
+      },
    },
 }
-require("telescope").load_extension('fzf')
-local M = {}
-M.setup = function(override_flag)
-   if override_flag then
-      default = require("core.utils").tbl_override_req("telescope", default)
+
+-- check for any override
+options = nvchad.load_override(options, "nvim-telescope/telescope.nvim")
+telescope.setup(options)
+
+-- load extensions
+local extensions = nvchad.load_config().plugins.options.telescope.extensions
+
+pcall(function()
+   for _, ext in ipairs(extensions) do
+      telescope.load_extension(ext)
    end
-
-   telescope.setup(default)
-
-   local extensions = { "themes", "terms" }
-
-   pcall(function()
-      for _, ext in ipairs(extensions) do
-         telescope.load_extension(ext)
-      end
-   end)
-end
-
-return M
+end)
