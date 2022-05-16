@@ -5,6 +5,13 @@ return {
   ["tpope/vim-surround"] = {},
   ["mfussenegger/nvim-jdtls"] = {},
   ["nvim-telescope/telescope-fzf-native.nvim"] = {run = 'make'},
+  ["wesleimp/stylua.nvim"] = {},
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.plugins.null-ls").setup()
+    end,
+  },
   ["nvim-telescope/telescope.nvim"] = {
     config = function ()
       require "plugins.configs.telescope"
