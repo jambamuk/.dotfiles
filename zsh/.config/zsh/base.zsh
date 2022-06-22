@@ -3,7 +3,6 @@ stty -ixon
 . $HOME/.asdf/asdf.sh
 
 export EDITOR='nvim'
-export JAVA_HOME=/home/chappie/.asdf/installs/java/adoptopenjdk-8.0.292+10
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\

@@ -11,5 +11,9 @@ alias python2='python2.7'
 alias cdus='cd ~/Library/Application\ Support/Übersicht/widgets/'
 
 #deploy aliases
-alias di='cp /home/chappie/intouch/modules/intouch/target/InTouchWeb-1.0-SNAPSHOT.war /mnt/c/PPS-project/Mutual/wildfly10.1_mutual/standalone/deployments/InTouchWeb-1.0-SNAPSHOT.war'
+#Build intouch
 alias bi='mvn -s /mnt/f/jameel/.m2/settings_wsl.xml -Dmaven.test.skip clean install'
+#Deploy to wildfly server 
+alias di='cp /home/chappie/intouch/modules/intouch/target/InTouchWeb-1.0-SNAPSHOT.war /mnt/c/PPS-project/Mutual/wildfly10.1_mutual/standalone/deployments/InTouchWeb-1.0-SNAPSHOT.war'
+#Run wildfly server 
+alias ri='./mnt/c/PPS-project/Mutual/wildfly11.1_mutual/bin/standalone.sh'
