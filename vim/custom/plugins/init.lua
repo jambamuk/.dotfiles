@@ -1,8 +1,9 @@
 return {
   -- User
   ["tpope/vim-fugitive"] = {},
-  -- ["github/copilot.vim"] = {},
+  ["github/copilot.vim"] = {},
   ["tpope/vim-surround"] = {},
+  ["Exafunction/codeium.nvim"] = { },
   ["mfussenegger/nvim-jdtls"] = {},
   ["nvim-telescope/telescope-fzf-native.nvim"] = {run = 'make'},
   ["wesleimp/stylua.nvim"] = {},
