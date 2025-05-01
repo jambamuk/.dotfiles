@@ -6,23 +6,22 @@ set -e
 
 # Function to check if a command exists
 command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
-
-# Function to install packages if missing
-install_if_missing() {
-  local packages=("$@")
+  command -v "<span class="math-inline">1" \>/dev/null 2\>&1
+\}
+\# Function to install packages if missing
+install\_if\_missing\(\) \{
+local packages\=\("</span>@")
   local missing_packages=()
   for pkg in "${packages[@]}"; do
     if ! command_exists "$pkg"; then
       missing_packages+=("$pkg")
     fi
-  }
+  done # <--- FIX: Added missing 'done' for the for loop
 
   if [ ${#missing_packages[@]} -gt 0 ]; then
-    echo "Installing missing packages: ${missing_packages[*]}..."
-    sudo apt update
-    sudo apt install -y "${missing_packages[@]}"
+    echo "Installing missing packages: <span class="math-inline">\{missing\_packages\[\*\]\}\.\.\."
+sudo apt update
+sudo apt install \-y "</span>{missing_packages[@]}"
   else
     echo "All required packages already installed: ${packages[*]}."
   fi
@@ -46,9 +45,9 @@ cleanup_stow_symlinks() {
 
     # Use find to list all files/directories in the package, respecting hidden files.
     # -maxdepth 1 and -mindepth 1 look only at direct children.
-    find . -maxdepth 1 -mindepth 1 -print0 | while IFS= read -r -d $'\0' source_item; do
-      # Remove leading './'
-      local item_name="${source_item#./}"
+    find . -maxdepth 1 -mindepth 1 -print0 | while IFS= read -r -d <span class="math-inline">'\\0' source\_item; do
+\# Remove leading '\./'
+local item\_name\="</span>{source_item#./}"
       # Determine the target path in the home directory. Stow often links to .$item_name
       # This is a simplification and assumes items like .bashrc -> ~/.bashrc, not config/nvim -> ~/.config/nvim
       # For complex structures like nvim linking into ~/.config, this cleanup might be insufficient.
@@ -79,11 +78,12 @@ sudo apt update
 install_if_missing zsh tmux fzf ripgrep fd
 
 # Install Oh My Zsh if not already present
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "Installing Oh My Zsh..."
-  # Use the official installation command from Oh My Zsh's repository
-  # The 'unattended' flag prevents it from trying to change your default shell
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+if [ ! -d "<span class="math-inline">HOME/\.oh\-my\-zsh" \]; then
+echo "Installing Oh My Zsh\.\.\."
+\# Use the official installation command from Oh My Zsh's repository
+\# The 'unattended' flag prevents it from trying to change your default shell
+
+sh \-c "</span>(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
   echo "Oh My Zsh is already installed."
 fi
@@ -133,36 +133,31 @@ else
     echo '. "$ASDF_DIR/asdf.sh"' >> ~/.zshrc
   fi
   if ! grep -q ". \"\$ASDF_DIR/completions/asdf.bash\"" ~/.zshrc; then
-     echo '. "$ASDF_DIR/completions/asdf.bash"' >> ~/.zshrc
-  fi
-
-  # Source now
-  echo "Sourcing ~/.zshrc to make 'asdf' command available..."
-  source ~/.zshrc
-  if ! command_exists asdf; then
-      echo "Warning: ASDF installed and sourcing lines added, but 'asdf' command not found after sourcing."
-      echo "Manual intervention may be required."
-  fi
+     echo '. "<span class="math-inline">ASDF\_DIR/completions/asdf\.bash"' \>\> \~/\.zshrc
 fi
-
-
-# --- ASDF commands use the standard syntax: global, local, shell ---
-
-# Install Neovim (via ASDF) if nvim command isn't found
-# This assumes if nvim exists, it's already been handled by ASDF or manually.
-if command_exists asdf; then
-  if ! command_exists nvim; then
-    echo "Installing Neovim via ASDF..."
-    # Add Neovim plugin if not already added
-    if ! asdf plugin list | grep -q "neovim"; then
-      echo "Adding Neovim plugin to ASDF..."
-      asdf plugin add neovim || { echo "Error: Failed to add asdf neovim plugin."; }
-    else
-      echo "ASDF Neovim plugin already added."
-    fi
-
-    # Install the latest stable version available via the plugin
-    LATEST_NEOVIM=$(asdf latest neovim)
+\# Source now
+echo "Sourcing \~/\.zshrc to make 'asdf' command available\.\.\."
+source \~/\.zshrc
+if \! command\_exists asdf; then
+echo "Warning\: ASDF installed and sourcing lines added, but 'asdf' command not found after sourcing\."
+echo "Manual intervention may be required\."
+fi
+fi
+\# \-\-\- ASDF commands use the standard syntax\: global, local, shell \-\-\-
+\# Install Neovim \(via ASDF\) if nvim command isn't found
+\# This assumes if nvim exists, it's already been handled by ASDF or manually\.
+if command\_exists asdf; then
+if \! command\_exists nvim; then
+echo "Installing Neovim via ASDF\.\.\."
+\# Add Neovim plugin if not already added
+if \! asdf plugin list \| grep \-q "neovim"; then
+echo "Adding Neovim plugin to ASDF\.\.\."
+asdf plugin add neovim \|\| \{ echo "Error\: Failed to add asdf neovim plugin\."; \}
+else
+echo "ASDF Neovim plugin already added\."
+fi
+\# Install the latest stable version available via the plugin
+LATEST\_NEOVIM\=</span>(asdf latest neovim)
     if [ -z "$LATEST_NEOVIM" ]; then
         echo "Error: Could not determine latest Neovim version via ASDF. Skipping Neovim install."
     elif asdf list neovim | grep -q "$LATEST_NEOVIM"; then
@@ -234,50 +229,3 @@ DOTFILES_REPO_URL="<your_github_repository_url>" # Set your repo URL here
 DOTFILES_DIR="$HOME/.dotfiles"
 
 if [ "$DOTFILES_REPO_URL" = "<your_github_repository_url>" ]; then
-    echo "ERROR: Please update DOTFILES_REPO_URL in the script with your actual repository URL."
-    exit 1
-fi
-
-if [ ! -d "$DOTFILES_DIR" ]; then
-  echo "Cloning dotfiles from $DOTFILES_REPO_URL..."
-  git clone "$DOTFILES_REPO_URL" "$DOTFILES_DIR" || { echo "Error: Failed to clone dotfiles repository."; exit 1; }
-else
-  echo "Dotfiles directory $DOTFILES_DIR already exists. Skipping clone."
-  # Optional: Could add git pull origin main/master here to update existing dotfiles
-  # echo "Updating dotfiles..."
-  # (cd "$DOTFILES_DIR" && git pull)
-fi
-
-# Stow setup
-echo "Setting up symlinks with Stow..."
-if [ -d "$DOTFILES_DIR" ]; then
-  # Navigate to the dotfiles directory before using stow
-  cd "$DOTFILES_DIR" || { echo "Error: Could not navigate to $DOTFILES_DIR"; exit 1; }
-
-  # Packages to stow. Ensure these directories exist in your dotfiles repo.
-  # The cleanup_stow_symlinks function assumes these link directly into HOME/.<package_item>
-  # If your stow package links elsewhere (e.g., nvim -> ~/.config/nvim), the cleanup might need adjustment.
-  STOW_PACKAGES=("nvim" "zsh" "tmux") # Removed 'asdf' from here unless you manage ~/.asdf structure with stow
-
-  # Optional: Add 'asdf' here if you manage files directly under ~/.asdf with stow
-  # STOW_PACKAGES+=("asdf")
-
-  for package in "${STOW_PACKAGES[@]}"; do
-    if [ -d "./$package" ]; then # Check if the package directory exists in dotfiles
-      cleanup_stow_symlinks "$package" # Clean up potential symlinks in HOME
-
-      echo "Running stow for package '$package'..."
-      # --no-folding prevents merging directories if the target exists and is a directory (safer)
-      stow "$package" --no-folding || { echo "Error: Failed to stow '$package'. Check warnings above or manual intervention may be needed."; exit 1; }
-    else
-      echo "Warning: Stow package directory './$package' not found in $DOTFILES_DIR. Skipping stow for '$package'."
-    fi
-  done
-
-  cd - >/dev/null # Return to the previous directory
-else
-  echo "Warning: Dotfiles directory $DOTFILES_DIR not found. Skipping Stow setup."
-fi
-
-echo "Installation and setup script finished."
-echo "You may need to restart your terminal or run 'source ~/.zshrc' manually to apply changes."
